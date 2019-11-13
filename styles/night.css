@@ -1,0 +1,59 @@
+.oColor {
+	color: #BDC7C1;
+}
+
+.tColor {
+	color: #013443;
+}
+
+html {
+	color: #BDC7C1;
+}
+
+div#clock {
+	background-color: #060C18;
+}
+
+div#small-gate {
+	background-color: #180906;
+}
+
+div#main-gate {
+	background-color: #100604;
+}
+
+div#heater-control {
+	background-color: #50394C;
+}
+
+div#weather-today {
+	background-color: #180906;
+}
+
+div#weather-forecast {
+	background-color: #100604;
+}
+
+div#sensor-list {
+	background-color: #180906;
+}
+
+div#calendar {
+	background-color: #100604;
+}
+
+span.calendar-event {
+	color: #5A666B;
+}
+
+div#heater-control-minus {
+	background-color: #100604;
+}
+
+div#heater-control-plus {
+	background-color: #180906;
+}
+
+div#heater-control-info {
+	background-color: #060C18;
+}

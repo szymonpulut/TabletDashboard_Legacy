@@ -1,0 +1,299 @@
+@font-face { font-family: Roboto-Regular; src: url('../fonts/Roboto-Regular.ttf');}
+@font-face { font-family: Roboto-Black; src: url('../fonts/Roboto-Black.ttf'); } 
+@font-face { font-family: Roboto-Bold; src: url('../fonts/Roboto-Bold.ttf'); } 
+@font-face { font-family: Roboto-Thin; src: url('../fonts/Roboto-Thin.ttf'); } 
+@font-face { font-family: RobotoCondensed-Regular; src: url('../fonts/RobotoCondensed-Regular.ttf');}
+@font-face { font-family: RobotoCondensed-Light; src: url('../fonts/RobotoCondensed-Light.ttf');}
+@font-face { font-family: RobotoCondensed-Bold; src: url('../fonts/RobotoCondensed-Bold.ttf');}
+
+html, body {
+	width: 100vmax;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: RobotoCondensed-Regular;
+}
+
+div#content {
+	width: 100vmax;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: auto 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 2fr;
+	grid-template-areas:
+		'sidebar clock clock small-gate main-gate'
+		'sidebar clock clock heater-control heater-control'
+		'sidebar weather-today weather-forecast sensor-list calendar';
+	place-items: stretch;
+}
+
+div.text-vertical-center {
+	min-width: 100%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	
+}
+
+/* BEGIN NAVIGATION */
+
+div.sidebar {
+	grid-area: sidebar;
+	height: 100vh;
+	width: 0vmax;
+	background-color: #111;
+	transition: all 1s;
+	padding-top: 1vmax;
+}
+
+div.sidebar span {
+	padding: 1vh 0.5vmax 1vh 1vmax;
+	text-decoration: none;
+	font-size: 2vmax;
+	color: #818181;
+	display: block;
+	transition: 0.3s
+}
+
+
+
+/* END NAVIGATION */
+
+/* BEGIN CLOCK */
+div#clock {
+	grid-area: clock;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+span#clock-time {
+	font-family: RobotoCondensed-Bold;
+	font-size: 10vmax;
+}
+
+span#clock-date {
+	font-size: 5.5vmax;
+}
+
+/* END CLOCK */
+
+/* BEGIN GATE CONTROL */
+
+div#small-gate {
+	grid-area: small-gate;
+}
+
+div#main-gate {
+	grid-area: main-gate;
+}
+
+div#small-gate, div#main-gate {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 4vmax;
+}
+
+div#main-gate-button {
+	height: 80%;
+}
+
+div#main-gate-status {
+	font-size: 1.5vmax;
+	height: 20%;
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+div#main-gate-autoclose-countdown {
+	font-size: 1.5vmax;
+	height: 20%;
+	width: 0%;
+	float: right;
+}
+
+/* END GATE CONTROL */
+
+/* BEGIN HEATER CONTROL */
+
+div#heater-control {
+	grid-area: heater-control;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: 'minus info plus';
+	place-items: stretch;
+
+}
+
+div#heater-control-minus, div#heater-control-info, div#heater-control-plus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div#heater-control-minus {
+	grid-area: minus;
+	font-size: 6vmax;
+}
+
+div#heater-control-plus {
+	grid-area: plus;
+	font-size: 6vmax;
+}
+
+div#heater-control-info {
+	grid-area: info;
+	text-align: center;
+	font-size: 2vmax;
+	line-height: 4vmax;
+	
+}
+/* END HEATER CONTROL */
+
+/* BEGIN WEATHER TODAY */
+
+div#weather-today {
+	grid-area: weather-today;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+}
+
+div#weather-today > div.text-vertical-center {
+	width: 100% !important;
+	padding: 0;
+	margin: 0;
+}
+
+div#weather-today-image {
+	height: 60%;
+	width: 100%;
+	text-align: center;
+}
+
+img#weather-today-img {
+	height: 11.5vmax;
+	width: 11.5vmax;
+}
+
+div#weather-today-text {
+	height: 40%;
+	width: 100%;
+}
+
+div#weather-today-low, div#weather-today-high {
+	display: inline-block;
+	margin: 0 auto 0 auto;
+	width: 40%;
+	font-size: 4vmax;
+	font-family: RobotoCondensed-Bold;
+}
+
+div#weather-today-low {
+	text-align: left;
+	padding-right: 1vmax;
+}
+
+div#weather-today-high {
+	text-align: right;
+	padding-left: 1vmax;
+}
+
+/* END WEATHER TODAY */
+
+/* BEGIN WEATHER FORECAST */
+
+div#weather-forecast {
+	grid-area: weather-forecast;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas:
+		'day1 day2 day3'
+		'day4 day5 day6';
+	place-items: stretch;
+	font-size: 3vmax;
+	font-family: RobotoCondensed-Bold;
+}
+
+div.weather-forecast-day {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div#weather-forecast-day-1 {
+	grid-area: day1;
+}
+
+div#weather-forecast-day-2 {
+	grid-area: day2;
+}
+
+div#weather-forecast-day-3 {
+	grid-area: day3;
+}
+
+div#weather-forecast-day-4 {
+	grid-area: day4;
+}
+
+div#weather-forecast-day-5 {
+	grid-area: day5;
+}
+
+div#weather-forecast-day-6 {
+	grid-area: day6;
+}
+
+div.weather-forecast-day img {
+	height: 3.5vmax;
+	width: 3.5vmax;
+}
+
+/* END WEATHER FORECAST */
+
+/* BEGIN SENSOR LIST */
+
+div#sensor-list {
+	grid-area: sensor-list;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 3vmax;
+}
+
+div#sensor-list > div.text-vertical-center {
+	text-align: left;
+}
+
+div.sensor-list-sensor {
+	font-size: 3vmax;
+	line-height: 4.5vmax;
+	margin-top: 3%;
+	margin-left: 4%;
+}
+
+/* END SENSOR LIST */
+
+/* BEGIN CALENDAR */
+
+div#calendar {
+	grid-area: calendar;
+	font-size: 2.75vmax;
+	overflow-x: auto;
+}
+
+div.calendar-list-event {
+	margin-top: 3%;
+	margin-left: 1%;
+}
+
+/* END CALENDAR */
